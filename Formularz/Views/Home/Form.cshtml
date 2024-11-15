@@ -1,0 +1,48 @@
+﻿@model Formularz.Models.Dane
+@{
+	ViewData["Title"] = "Formularz";
+}
+
+<form asp-action="Form" method="post">
+	<div asp-validation-summary="All"></div>
+	<div>
+		<label asp-for="FirstName">Imie</label>
+		<input type="text" asp-for="FirstName" />
+	</div>
+	<div>
+		<label asp-for="LastName">Nazwisko</label>
+		<input type="text" asp-for="LastName" />
+	</div>
+	<div>
+		<label asp-for="Email">Email</label>
+		<input type="email" asp-for="Email" />
+	</div>
+	<div>
+		<label asp-for="Password">Haslo</label>
+		<input type="password" asp-for="Password" />
+	</div>
+	<div>
+		<label asp-for="ConfirmPassword">Powtorz haslo</label>
+		<input type="password" asp-for="ConfirmPassword">
+	</div>
+	<div>
+		<label asp-for="Phone">Numer telefonu</label>
+		<input type="tel" asp-for="Phone">
+	</div>
+	<div>
+		<label asp-for="Age">Wiek</label>
+		<input type="number" asp-for="Age">
+	</div>
+	<div>
+		<label asp-for="City">Miasto</label>
+		<select asp-for="City"
+				asp-items="Html.GetEnumSelectList<Dane.Cities>()">
+		</select>
+	</div>
+	<div>
+		<input type="submit" />
+	</div>
+	<div>
+		<input type="reset" value="Wyczysc"/>
+	</div>
+</form>
